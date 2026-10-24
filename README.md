@@ -102,6 +102,10 @@ A secure, full-screen office kiosk web application designed to run on lobby disp
 
 ## Backend & Security Architecture
 
+> [!TIP]
+> **Dedicated Backend Documentation:**
+> For the complete data model, interactive Mermaid ERD diagram, table schemas, and local CLI replication instructions, see the dedicated [**`supabase/README.md`**](supabase/README.md).
+
 ### Core Business Rules
 - **Segregation of Duties**: HR approves Employee requests; Admin approves HR requests. Self-approval is strictly prevented by database triggers.
 - **Mutual Exclusivity**: 1 check-in and 1 check-out per employee per day. An employee cannot punch both Office and WFH on the same day.
@@ -236,6 +240,8 @@ VorldX-Attendance-System/
 │       │   └── constants/       # Theme tokens and typography
 │       └── package.json
 ├── supabase/
+│   ├── config.toml              # Supabase CLI local development configuration
+│   ├── README.md                # Comprehensive backend ERD & security documentation
 │   ├── functions/               # 15 Deno Edge Functions (business rules)
 │   ├── migrations/              # 17 versioned PostgreSQL migrations & RLS policies
 │   └── seed/
