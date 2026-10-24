@@ -14,8 +14,8 @@ const NAV = [
   ]},
   { group: "Requests", items: [
     { to: "/hr/wfh-requests", label: "Employee WFH", icon: Inbox },
-    { to: "/hr/my-wfh-requests", label: "My WFH requests", icon: Inbox },
     { to: "/hr/leave-requests", label: "Employee Leave", icon: Inbox },
+    { to: "/hr/my-wfh-requests", label: "My WFH requests", icon: Inbox },
     { to: "/hr/my-leave-requests", label: "My leave requests", icon: Inbox },
   ]},
   { group: "Feedback", items: [
