@@ -191,7 +191,7 @@ function ScoreBars({ items, max = 10 }: { items: ScoreItem[]; max?: number }) {
 }
 
 export function HrMyFeedback() {
-  const { userId } = useAuth();
+  const { userId, company } = useAuth();
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -203,12 +203,17 @@ export function HrMyFeedback() {
     setErrorMsg(null);
     try {
       // 1. Get the HR's employee record
-      const { data: emp, error: empErr } = await supabase
+      let empQuery = supabase
         .from("employees")
-        .select("id, first_name, last_name, employee_code")
+        .select("id, full_name, employee_code")
         .eq("user_id", userId)
-        .eq("is_active", true)
-        .maybeSingle();
+        .eq("is_active", true);
+
+      if (company?.id) {
+        empQuery = empQuery.eq("company_id", company.id);
+      }
+
+      const { data: emp, error: empErr } = await empQuery.limit(1).maybeSingle();
 
       if (empErr) throw new Error(empErr.message);
       if (!emp) {
@@ -251,7 +256,7 @@ export function HrMyFeedback() {
       setLoading(false);
       setRefreshing(false);
     }
-  }, [userId]);
+  }, [userId, company?.id]);
 
   useEffect(() => {
     loadFeedback();
