@@ -1,0 +1,62 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment variables & secrets (CRITICAL: Never push secrets to GitHub)
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+
+# Build outputs & Bundles
+dist/
+dist-ssr/
+build/
+web-build/
+*.tsbuildinfo
+
+# Expo & Mobile
+.expo/
+.expo-shared/
+*.jks
+*.p8
+*.p12
+*.mobileprovision
+/apps/employee-mobile/ios/
+/apps/employee-mobile/android/
+
+# Supabase CLI local temporary caches
+supabase/.temp/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor & IDE directories
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.claude/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Metro bundler
+.metro-health-check*

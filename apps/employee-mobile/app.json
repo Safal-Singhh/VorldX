@@ -1,0 +1,73 @@
+{
+  "expo": {
+    "name": "VorldX",
+    "slug": "vorldx",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./assets/images/icon.png",
+    "scheme": "vorldx",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#07080E",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vorldx.app",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.vorldx.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#07080E",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.CAMERA"
+      ]
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-asset",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow VorldX to scan office attendance QR codes.",
+          "microphonePermission": false,
+          "recordAudioAndroid": false,
+          "barcodeScannerEnabled": true
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#07080E",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 128,
+          "resizeMode": "contain"
+        }
+      ],
+      "expo-status-bar"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "69ac9c68-3bc8-41e8-bf05-d1883a1c6d4c"
+      }
+    }
+  }
+}
